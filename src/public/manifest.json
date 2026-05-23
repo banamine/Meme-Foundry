@@ -2,8 +2,8 @@
   "name": "Meme Foundry - Advanced Media Studio",
   "short_name": "Meme Foundry",
   "description": "Professional browser-based meme and media composition studio with multi-layer editing, video support, and social media presets",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#1a1a2e",
@@ -14,81 +14,64 @@
   
   "icons": [
     {
-      "src": "/icons/icon-72.png",
+      "src": "./icons/icon-72.png",
       "sizes": "72x72",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-96.png",
+      "src": "./icons/icon-96.png",
       "sizes": "96x96",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-128.png",
+      "src": "./icons/icon-128.png",
       "sizes": "128x128",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-144.png",
+      "src": "./icons/icon-144.png",
       "sizes": "144x144",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-152.png",
+      "src": "./icons/icon-152.png",
       "sizes": "152x152",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-192.png",
+      "src": "./icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-384.png",
+      "src": "./icons/icon-384.png",
       "sizes": "384x384",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-512.png",
+      "src": "./icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/maskable-192.png",
+      "src": "./icons/maskable-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/icons/maskable-512.png",
+      "src": "./icons/maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
-    }
-  ],
-  
-  "screenshots": [
-    {
-      "src": "/screenshots/editor.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "platform": "wide",
-      "label": "Main editor interface"
-    },
-    {
-      "src": "/screenshots/editor-mobile.png",
-      "sizes": "750x1334",
-      "type": "image/png",
-      "platform": "narrow",
-      "label": "Mobile editor view"
     }
   ],
   
@@ -97,94 +80,17 @@
       "name": "New Project",
       "short_name": "New",
       "description": "Create a new meme project",
-      "url": "/?action=new",
-      "icons": [
-        {
-          "src": "/icons/new-96.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
+      "url": "./?action=new",
+      "icons": [{ "src": "./icons/new-96.png", "sizes": "96x96", "type": "image/png" }]
     },
     {
       "name": "My Projects",
       "short_name": "Projects",
       "description": "View saved projects",
-      "url": "/?view=projects",
-      "icons": [
-        {
-          "src": "/icons/projects-96.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
-    },
-    {
-      "name": "Quick Export",
-      "short_name": "Export",
-      "description": "Export current project",
-      "url": "/?action=export",
-      "icons": [
-        {
-          "src": "/icons/export-96.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
+      "url": "./?view=projects",
+      "icons": [{ "src": "./icons/projects-96.png", "sizes": "96x96", "type": "image/png" }]
     }
   ],
   
-  "share_target": {
-    "action": "/?action=import",
-    "method": "POST",
-    "enctype": "multipart/form-data",
-    "params": {
-      "files": [
-        {
-          "name": "media",
-          "accept": [
-            "image/*",
-            "video/*",
-            "audio/*"
-          ]
-        }
-      ]
-    }
-  },
-  
-  "file_handlers": [
-    {
-      "action": "/?action=open",
-      "accept": {
-        "application/json": [".meme.json"],
-        "image/png": [".png"],
-        "image/jpeg": [".jpg", ".jpeg"],
-        "image/webp": [".webp"],
-        "video/mp4": [".mp4"],
-        "video/webm": [".webm"]
-      }
-    }
-  ],
-  
-  "related_applications": [],
-  "prefer_related_applications": false,
-  
-  "edge_side_panel": {
-    "preferred_width": 400
-  },
-  
-  "handle_links": "preferred",
-  
-  "launch_handler": {
-    "client_mode": ["navigate-existing", "auto"]
-  },
-  
-  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
-  
-  "protocol_handlers": [
-    {
-      "protocol": "web+meme",
-      "url": "/?source=%s"
-    }
-  ]
+  "display_override": ["standalone", "minimal-ui"]
 }
