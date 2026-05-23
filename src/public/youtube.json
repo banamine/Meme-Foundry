@@ -1,0 +1,20 @@
+{
+  "platform": "youtube",
+  "presets": {
+    "thumbnail": {
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "quality": 0.95,
+      "safeAreas": { "top": 0, "bottom": 80, "left": 0, "right": 0 }
+    },
+    "shorts": {
+      "width": 1080,
+      "height": 1920,
+      "format": "mp4",
+      "quality": 0.9,
+      "fps": 30,
+      "safeAreas": { "top": 120, "bottom": 180, "left": 20, "right": 20 }
+    }
+  }
+}

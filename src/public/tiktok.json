@@ -1,0 +1,13 @@
+{
+  "platform": "tiktok",
+  "presets": {
+    "video": {
+      "width": 1080,
+      "height": 1920,
+      "format": "mp4",
+      "quality": 0.95,
+      "fps": 30,
+      "safeAreas": { "top": 180, "bottom": 230, "left": 50, "right": 60 }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "platform": "instagram",
+  "presets": {
+    "post": {
+      "width": 1080,
+      "height": 1080,
+      "format": "jpeg",
+      "quality": 0.92,
+      "safeAreas": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+    },
+    "story": {
+      "width": 1080,
+      "height": 1920,
+      "format": "jpeg",
+      "quality": 0.9,
+      "safeAreas": { "top": 130, "bottom": 110, "left": 20, "right": 20 }
+    },
+    "reel": {
+      "width": 1080,
+      "height": 1920,
+      "format": "mp4",
+      "quality": 0.95,
+      "fps": 30,
+      "safeAreas": { "top": 160, "bottom": 220, "left": 40, "right": 40 }
+    }
+  }
+}

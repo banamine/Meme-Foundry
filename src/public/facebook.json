@@ -1,0 +1,26 @@
+{
+  "platform": "facebook",
+  "presets": {
+    "post": {
+      "width": 1200,
+      "height": 630,
+      "format": "jpeg",
+      "quality": 0.9,
+      "safeAreas": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+    },
+    "cover": {
+      "width": 820,
+      "height": 312,
+      "format": "jpeg",
+      "quality": 0.9,
+      "safeAreas": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+    },
+    "story": {
+      "width": 1080,
+      "height": 1920,
+      "format": "jpeg",
+      "quality": 0.9,
+      "safeAreas": { "top": 120, "bottom": 100, "left": 20, "right": 20 }
+    }
+  }
+}

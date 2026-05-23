@@ -1,0 +1,19 @@
+{
+  "platform": "twitter",
+  "presets": {
+    "post": {
+      "width": 1200,
+      "height": 675,
+      "format": "jpeg",
+      "quality": 0.85,
+      "safeAreas": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+    },
+    "header": {
+      "width": 1500,
+      "height": 500,
+      "format": "jpeg",
+      "quality": 0.9,
+      "safeAreas": { "top": 0, "bottom": 0, "left": 60, "right": 0 }
+    }
+  }
+}
