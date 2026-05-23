@@ -10,34 +10,36 @@
   <!-- Open Graph / Social -->
   <meta property="og:title" content="Meme Foundry Media Studio">
   <meta property="og:description" content="Professional browser-based meme and media composition studio">
-  <meta property="og:image" content="/social-preview.png">
-  <meta property="og:url" content="https://memefoundry.app">
+  <meta property="og:image" content="./social-preview.png">
+  <meta property="og:url" content="https://banamine.github.io/Meme-Foundry/">
   <meta property="og:type" content="website">
   
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Meme Foundry Media Studio">
   <meta name="twitter:description" content="Professional browser-based meme and media composition studio">
-  <meta name="twitter:image" content="/social-preview.png">
+  <meta name="twitter:image" content="./social-preview.png">
   
   <!-- PWA -->
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
   
   <!-- Preload critical assets -->
-  <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Remove or comment out the font preload if the font doesn't exist yet -->
+  <!-- <link rel="preload" href="./fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin> -->
   
-  <!-- Security -->
+  <!-- Security - CSP that allows module scripts but blocks unsafe-inline -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self' 'wasm-unsafe-eval' 'inline-speculation-rules';
-    style-src 'self' 'unsafe-inline';
+    script-src 'self' 'wasm-unsafe-eval' https://unpkg.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     img-src 'self' data: blob: https:;
     media-src 'self' blob:;
-    font-src 'self' https://fonts.gstatic.com;
-    connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;
+    font-src 'self' https://fonts.gstatic.com data:;
+    connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com;
     worker-src 'self' blob:;
+    child-src 'self' blob:;
   ">
   
   <title>Meme Foundry - Advanced Media Studio</title>
@@ -156,7 +158,6 @@
   </div>
   
   <div id="app" role="application" aria-label="Meme Foundry Media Studio">
-    <!-- App shell will be rendered here by bootstrap.js -->
     <noscript>
       <div style="padding: 20px; text-align: center;">
         <h1>JavaScript Required</h1>
@@ -165,31 +166,23 @@
     </noscript>
   </div>
   
-  <script type="module" src="/src/app/bootstrap.js"></script>
-  
-  <script>
-    // Basic feature detection
-    (function() {
-      const missingFeatures = [];
+  <!-- Feature detection moved to external module to satisfy CSP -->
+  <script type="module">
+    import { detectBrowserFeatures, showFeatureError, showFeatureWarnings } from './src/utils/feature-detection.js';
+    
+    // Run feature detection
+    const features = detectBrowserFeatures();
+    
+    if (!features.isSupported) {
+      // Show error screen for missing critical features
+      showFeatureError(features);
+    } else {
+      // Show any warnings in console
+      showFeatureWarnings(features);
       
-      if (!window.CanvasRenderingContext2D) missingFeatures.push('Canvas');
-      if (!window.OffscreenCanvas) console.warn('OffscreenCanvas not available - performance may be degraded');
-      if (!window.indexedDB) missingFeatures.push('IndexedDB');
-      if (typeof Worker === 'undefined') missingFeatures.push('Web Workers');
-      
-      if (missingFeatures.length > 0) {
-        document.getElementById('loading-screen').innerHTML = `
-          <div style="text-align: center; padding: 20px;">
-            <h2 style="color: #e94560; margin-bottom: 10px;">Browser Not Supported</h2>
-            <p>Your browser is missing required features:</p>
-            <ul style="list-style: none; margin: 10px 0;">
-              ${missingFeatures.map(f => `<li>❌ ${f}</li>`).join('')}
-            </ul>
-            <p>Please use a modern browser like Chrome, Firefox, or Edge.</p>
-          </div>
-        `;
-      }
-    })();
+      // Proceed to bootstrap the application
+      import('./src/app/bootstrap.js');
+    }
   </script>
 </body>
 </html>
