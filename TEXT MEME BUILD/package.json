@@ -1,0 +1,61 @@
+{
+  "name": "meme-foundry",
+  "version": "1.0.0",
+  "description": "Advanced Meme Foundry Media Studio - Browser-based multimedia composition engine",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:e2e": "playwright test",
+    "lint": "eslint src/",
+    "format": "prettier --write src/",
+    "analyze": "vite-bundle-analyzer"
+  },
+  "dependencies": {
+    "@ffmpeg/ffmpeg": "^0.12.10",
+    "@ffmpeg/util": "^0.12.1",
+    "idb": "^8.0.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0",
+    "vitest": "^1.6.0",
+    "@playwright/test": "^1.44.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.0",
+    "vite-bundle-analyzer": "^0.11.0",
+    "sharp": "^0.33.0"
+  },
+  "browserslist": {
+    "production": [
+      "last 2 Chrome versions",
+      "last 2 Firefox versions",
+      "last 2 Safari versions",
+      "last 2 Edge versions"
+    ],
+    "development": [
+      "last 1 Chrome version",
+      "last 1 Firefox version",
+      "last 1 Safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/meme-foundry.git"
+  },
+  "keywords": [
+    "meme",
+    "media-editor",
+    "video-compositor",
+    "canvas",
+    "web-worker",
+    "offline-first"
+  ],
+  "author": "Meme Foundry Team",
+  "license": "MIT"
+}
