@@ -2,7 +2,11 @@
  * Meme Foundry - Application Bootstrap
  * Initializes the entire application, manages lifecycle, and coordinates all subsystems
  */
-
+// Add these imports:
+import { SceneManager } from '@/scene/scene-manager.js';
+import { CanvasRenderer } from '@/renderer/canvas-renderer.js';
+import { ExportManager } from '@/export/export-manager.js';
+import { TimelineManager } from '@/scene/timeline-manager.js';
 import { AppState } from './state.js';
 import { AppConfig } from './config.js';
 import { AppConstants } from './constants.js';
@@ -11,7 +15,7 @@ import { Logger } from '@/utils/logger.js';
 import { BrowserSupport } from '@/utils/browser-support.js';
 import { PerformanceMonitor } from '@/utils/performance-monitor.js';
 import { initializeStorage } from '@/storage/indexeddb.js';
-import { initializeWorkers } from '@/services/worker-bridge.js';
+import { initializeWorkers } from '@/workers/worker-bridge.js';
 import { initializeFonts } from '@/text/font-loader.js';
 
 class ApplicationBootstrap {
